@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>personajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true" >
+  <ion-list>
+    <ion-item *ngFor="let character of characters " [routerLink]="['/profile/' + character.id]" >
+      
+          <img src="{{character.image}}" alt="" style="width: 120px;">
+      <div style="display: block;">
+      <ion-label >Nombre: {{ character.name }}</ion-label>
+      <ion-label >KI: {{ character.ki }}</ion-label>
+      <ion-label >Raza: {{ character.race }}</ion-label>
+    </div>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

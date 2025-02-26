@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Dragon Ball
+    </ion-title>
+    <ion-title slot="start" [routerLink]="['/personajes']"  >
+      personajes
+    </ion-title>   
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar [debounce]="500" (ionInput)="handleInput($event)" ></ion-searchbar>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo">
+ <ion-grid>
+  <ion-row >
+    <ion-col sizeMd="4" offsetMd="4">
+      <ion-list>
+        <div style="display: block;">
+        <ion-item *ngFor="let character of filteredCharacters ">
+          <img src="{{character.image}}" alt="" style="width: 120px;">
+          <ion-label >{{ character.name }}</ion-label>
+        </ion-item>
+      </div>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+ </ion-grid>
+</ion-content>
